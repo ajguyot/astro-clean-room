@@ -1,0 +1,18 @@
+{
+	auto_https off
+}
+
+:4321 {
+	handle /*/ {
+		route {
+			uri strip_suffix /
+			redir {uri} 308
+		}
+	}
+
+	handle {
+		respond /ping "pong 🏓"
+
+		reverse_proxy http://astro-clean-room-static-dev:4321
+	}
+}

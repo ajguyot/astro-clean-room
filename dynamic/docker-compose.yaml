@@ -1,0 +1,16 @@
+services:
+  astro-clean-room-dynamic-dev:
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: ./dynamic/Dockerfile
+      args:
+        URL: http://localhost:4321
+        PORT: 4321
+    ports:
+      - 4321:4321
+    volumes:
+      - ../src:/usr/src/www/src
+      - ../public:/usr/src/www/public
+      - ./astro.config.mjs:/usr/src/www/astro.config.mjs
+      - ../tsconfig.json:/usr/src/www/tsconfig.json

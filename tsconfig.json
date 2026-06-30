@@ -1,0 +1,19 @@
+{
+	"extends": "astro/tsconfigs/base",
+	"compilerOptions": {
+		"lib": ["DOM", "ESNext"],
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"forceConsistentCasingInFileNames": true,
+		"strictBindCallApply": true,
+		"strictFunctionTypes": false,
+		"strictNullChecks": false,
+		"strictPropertyInitialization": false,
+		"useUnknownInCatchVariables": false,
+		"paths": {
+			"@component/*": ["./src/components/*"],
+			"@scaffold/*": ["./src/scaffold/*"],
+		  "@style/*": ["./src/styles/*"]
+		},
+	}
+}

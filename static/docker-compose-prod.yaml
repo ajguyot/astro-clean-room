@@ -1,0 +1,10 @@
+services:
+  astro-clean-room-static-prod:
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: ./static/Dockerfile.prod
+      args:
+        URL: http://localhost
+    ports:
+      - 80:80

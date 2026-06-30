@@ -1,0 +1,27 @@
+body {
+	margin: 25px;
+}
+
+h1 svg {
+	margin-inline-end: 1ch;
+}
+
+img, svg {
+	vertical-align: middle;
+}
+
+hr {
+	border-top: 1px solid;
+	margin-block: 1rem;
+}
+
+/* Drop browser default styling on any ul/ol that has a class on it.
+   Always set [role="list"] in these cases to avoid this accessibility
+   bug in Safari: https://bugs.webkit.org/show_bug.cgi?id=170179 */
+ul[class],
+ol[class],
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

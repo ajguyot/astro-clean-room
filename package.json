@@ -1,0 +1,23 @@
+{
+  "name": "astro-clean-room",
+  "version": "1.0.0",
+  "description": "A clean init setup for an Astro project.",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "11.0.0",
+    "astro": "7.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.2",
+    "typescript": "6.0.3"
+  }
+}

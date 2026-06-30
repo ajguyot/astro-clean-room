@@ -1,0 +1,21 @@
+services:
+  caddy-astro-clean-room:
+    image: caddy:2.11
+    command: ["caddy", "run", "--watch", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+    ports:
+      - 4321:4321
+    volumes:
+      - ./Caddyfile.local:/etc/caddy/Caddyfile:ro
+
+  astro-clean-room-static-dev:
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: ./static/Dockerfile
+      args:
+        URL: http://localhost:4321
+    volumes:
+      - ../src:/usr/src/www/src
+      - ../public:/usr/src/www/public
+      - ./astro.config.mjs:/usr/src/www/astro.config.mjs
+      - ../tsconfig.json:/usr/src/www/tsconfig.json

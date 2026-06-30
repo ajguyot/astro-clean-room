@@ -1,0 +1,11 @@
+services:
+  astro-clean-room-dynamic-prod:
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: ./dynamic/Dockerfile.prod
+      args:
+        URL: http://localhost
+        PORT: 4321
+    ports:
+      - 80:4321

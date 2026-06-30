@@ -1,0 +1,33 @@
+/* Basic CSS Reset */
+
+/* Fix CSS language mistake (ref: https://wiki.csswg.org/ideas/mistakes) */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* Make sure content fills the page. Resolves common issues like footers
+   getting sucked upward away from the viewport bottom. */
+body {
+	min-height: 100svh;
+}
+
+/* Dump browser-default margins... Be prepared to own these. */
+body, h1, h2, h3, h4, h5, h6, p,
+pre, figure, blockquote, dl, dd {
+	margin: 0;
+}
+
+/* None of these elements inherit font styles; all of them should. */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Fix iPhone font sizing (ref: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably) */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}

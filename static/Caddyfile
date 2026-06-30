@@ -1,0 +1,29 @@
+{
+	auto_https off
+}
+
+:80 {
+	root * /var/www
+
+	handle /*/ {
+		route {
+			uri strip_suffix /
+			redir {uri} 308
+		}
+	}
+
+	handle {
+		respond /ping "pong 🏓"
+
+		file_server {
+			disable_canonical_uris
+		}
+	}
+
+	handle_errors 404 {
+		rewrite * /404.html
+		file_server {
+			status 404
+		}
+	}
+}

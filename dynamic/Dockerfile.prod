@@ -1,0 +1,29 @@
+FROM node:24-alpine AS base
+
+WORKDIR /usr/src/www
+
+ARG URL
+ENV PUBLIC_URL=$URL
+
+ARG PORT
+ENV PORT=$PORT
+
+COPY package*.json ./
+
+FROM base AS build
+RUN npm install --production=false
+
+COPY src/ ./src/
+COPY public/ ./public/
+COPY dynamic/astro.config.mjs ./
+COPY tsconfig.json ./
+RUN npm run build
+
+FROM base AS runtime
+RUN npm ci --omit=dev
+COPY --from=build /usr/src/www/dist ./dist
+
+# Required for container networking to work right
+ENV HOST=0.0.0.0
+
+ENTRYPOINT [ "node", "./dist/server/entry.mjs" ]

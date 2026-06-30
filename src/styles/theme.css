@@ -1,0 +1,14 @@
+:root {
+  --color-bg: light-dark(#fff, #000);
+  --color-text: light-dark(#000, #fff);
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Default unfilled SVG paths to site text color. */
+:where(path:not([fill])) {
+  fill: var(--color-text);
+}
